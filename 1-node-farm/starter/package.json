@@ -1,0 +1,26 @@
+{
+  "name": "node-farm",
+  "version": "1.0.0",
+  "description": "NodeUdemy",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js && curl -I localhost:8000 && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dssalazaru/node.git"
+  },
+  "author": "dssalazaru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dssalazaru/node/issues"
+  },
+  "homepage": "https://github.com/dssalazaru/node#readme",
+  "dependencies": {
+    "slugify": "^1.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
