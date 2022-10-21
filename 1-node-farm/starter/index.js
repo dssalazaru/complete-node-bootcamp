@@ -36,36 +36,37 @@ const db = fs.readFileSync('dev-data/data.json', 'utf-8');
 const dbObj = JSON.parse(db)
 
 const server = http.createServer((req, res) => {
-    const { query, pathname } = url.parse(req.url, true);
+  const { query, pathname } = url.parse(req.url, true);
 
-    if (pathname === '/overview' || pathname === '/') {
-        res.writeHead(200, { 'Content-type': 'text/html' });
-        const cardHtml = dbObj.map(item => replaceTemplate(tempCard, item)).join('');
-        const output = tempOverview.replace(/{%PRODUCT_CARDS%}/g, cardHtml)
+  if (pathname === '/overview' || pathname === '/') {
+    res.writeHead(200, { 'Content-type': 'text/html' });
+    const cardHtml = dbObj.map(item => replaceTemplate(tempCard, item)).join('');
+    const output = tempOverview.replace(/{%PRODUCT_CARDS%}/g, cardHtml)
 
-        res.end(output);
-    }
-    else if (pathname === '/product') {
-        res.writeHead(200, { 'Content-type': 'text/html' });
-        const product = dbObj.filter(item => query.id == item.id)[0]
-        if (!product) return res.end('not fount');
-        const productHtml = replaceTemplate(tempProduct, product);
+    res.end(output);
+  }
+  else if (pathname === '/product') {
+    res.writeHead(200, { 'Content-type': 'text/html' });
+    const product = dbObj.filter(item => query.id == item.id)[0]
+    if (!product) return res.end('not fount');
+    const productHtml = replaceTemplate(tempProduct, product);
 
-        res.end(productHtml);
-    }
-    else if (pathname === '/api') {
-        res.writeHead(200, {
-            'Content-type': 'application/json'
-        });
-        res.end(db);
-    }
+    res.end(productHtml);
+  }
+  else if (pathname === '/api') {
+    res.writeHead(200, {
+      'Content-type': 'application/json'
+    });
+    res.end(db);
+  }
 
-    else {
-        res.writeHead(404, { 'Content-type': 'application/json' });
-        res.end(JSON.stringify({ "code": 404 }));
-    }
+  else {
+    res.writeHead(404, { 'Content-type': 'application/json' });
+    res.end(JSON.stringify({ "code": 404 }));
+  }
 })
 
 server.listen(8000, '0.0.0.0', () => {
-    console.log('Running server');
+  console
+    .log('Running server');
 })

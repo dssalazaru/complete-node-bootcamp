@@ -1,0 +1,54 @@
+
+GET http://localhost:3000/api/v1/users HTTP/1.1
+
+###
+
+GET http://localhost:3000/api/v1/users/2 HTTP/1.1
+
+###
+
+GET http://localhost:3000/api/v1/users/22 HTTP/1.1
+
+###
+
+PATCH http://localhost:3000/api/v1/users/3 HTTP/1.1
+
+###
+
+PATCH http://localhost:3000/api/v1/users/20 HTTP/1.1
+
+###
+
+DELETE http://localhost:3000/api/v1/users/2 HTTP/1.1
+
+###
+
+DELETE http://localhost:3000/api/v1/users/24 HTTP/1.1
+
+###
+POST http://localhost:3000/api/v1/users HTTP/1.1
+content-type: application/json
+
+{
+  "id": 232,
+  "name": "Master NGINX",
+  "duration": 6,
+  "maxGroupSize": 8,
+  "difficulty": "easy",
+  "ratingsAverage": 4.5,
+  "ratingsQuantity": 34,
+  "price": 2400,
+  "summary": "Exquisite wines, scenic views, exclusive barrel tastings,  and much more",
+  "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  "imageCover": "tour-7-cover.jpg",
+  "images": [
+    "tour-7-1.jpg",
+    "tour-7-2.jpg",
+    "tour-7-3.jpg"
+  ],
+  "startDates": [
+    "2021-02-12,10:00",
+    "2021-04-14,10:00",
+    "2021-09-01,10:00"
+  ]
+}
