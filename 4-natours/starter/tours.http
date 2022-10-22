@@ -1,44 +1,60 @@
+### GET LIST SUCCESS
 
 GET http://localhost:3000/api/v1/tours HTTP/1.1
 
-###
+### GET LIST SUCCESS
 
-GET http://localhost:3000/api/v1/tours/15 HTTP/1.1
+GET http://localhost:3000/api/v1/tours?limit=20 HTTP/1.1
 
-###
+### GET RETRIEVE SUCCESS
 
-GET http://localhost:3000/api/v1/tours/22 HTTP/1.1
+GET http://localhost:3000/api/v1/tours/63541d19e3c06e7b6cd825c4 HTTP/1.1
 
-###
+### GET RETRIEVE FAILED
 
-PATCH http://localhost:3000/api/v1/tours/24 HTTP/1.1
+GET http://localhost:3000/api/v1/tours/63537524eee9590737febed1 HTTP/1.1
 
-###
+### PATCH SUCCESS
+
+PATCH http://localhost:3000/api/v1/tours/635422bed133caa25344b0cd HTTP/1.1
+content-type: application/json
+
+{
+  "price": 2456
+}
+
+### PATCH FAILED
 
 PATCH http://localhost:3000/api/v1/tours/20 HTTP/1.1
+content-type: application/json
 
-###
+{
+  "name": "No works",
+  "price": 2345
+}
 
-DELETE http://localhost:3000/api/v1/tours/24 HTTP/1.1
+### DELETE SUCCESS
 
-###
+DELETE http://localhost:3000/api/v1/tours/635422bed133caa25344b0d2 HTTP/1.1
 
-DELETE http://localhost:3000/api/v1/tours/22 HTTP/1.1
+### DELETE FAILED
 
-###
+DELETE http://localhost:3000/api/v1/tours/635374d1ea0ad0d079fa6531 HTTP/1.1
+
+### POST SUCCESS
+
 POST http://localhost:3000/api/v1/tours HTTP/1.1
 content-type: application/json
 
 {
-  "id": 232,
-  "name": "Master NGINX",
-  "duration": 6,
-  "maxGroupSize": 8,
-  "difficulty": "easy",
-  "ratingsAverage": 4.5,
-  "ratingsQuantity": 34,
-  "price": 2400,
-  "summary": "Exquisite wines, scenic views, exclusive barrel tastings,  and much more",
+  "name": "The Sea Master",
+  "duration": 7,
+  "maxGroupSize": 15,
+  "difficulty": "medium",
+  "ratingsAverage": 4.8,
+  "ratingsQuantity": 23,
+  "price": 497,
+  "summary": "Exploring the jaw-dropping US east coast by foot and by boat",
   "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
   "imageCover": "tour-7-cover.jpg",
   "images": [
@@ -47,8 +63,12 @@ content-type: application/json
     "tour-7-3.jpg"
   ],
   "startDates": [
-    "2021-02-12,10:00",
-    "2021-04-14,10:00",
-    "2021-09-01,10:00"
+    "2021-02-12T15:00:00.000Z",
+    "2021-04-14T15:00:00.000Z",
+    "2021-09-01T15:00:00.000Z"
   ]
 }
+
+### GET LIST FILTER SUCCESS
+
+GET http://localhost:3000/api/v1/tours/top-5 HTTP/1.1
