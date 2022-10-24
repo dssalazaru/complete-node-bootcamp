@@ -10,6 +10,14 @@ router
   .get(controller.topPrice, controller.list)
 
 router
+  .route('/stats')
+  .get(controller.getTourStats)
+
+router
+  .route('/monthly-plan/:year')
+  .get(controller.getMonthlyPlan)
+
+router
   .route('/')
   .get(controller.list)
   .post(controller.create)
